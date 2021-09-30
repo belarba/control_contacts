@@ -42,7 +42,6 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1.json
   def update
     respond_to do |format|
-
       @contact.attributes = contact_params
 
       add_audits if @contact.valid?
@@ -70,10 +69,10 @@ class ContactsController < ApplicationController
   private
 
     def add_audits
-      Audit.create(contact: @contact, audit_message: "Name changed from #{@contact.first_name_was} to #{@contact.first_name}") if @contact.first_name_changed?
-      Audit.create(contact: @contact, audit_message: "Name changed from #{@contact.last_name_was} to #{@contact.last_name}") if @contact.last_name_changed?
-      Audit.create(contact: @contact, audit_message: "Name changed from #{@contact.email_was} to #{@contact.email}") if @contact.email_changed?
-      Audit.create(contact: @contact, audit_message: "Name changed from #{@contact.phone_was} to #{@contact.phone}") if @contact.phone_changed?
+      Audit.create(contact: @contact, audit_message: "First Name changed from #{@contact.first_name_was} to #{@contact.first_name}") if @contact.first_name_changed?
+      Audit.create(contact: @contact, audit_message: "Last Name changed from #{@contact.last_name_was} to #{@contact.last_name}") if @contact.last_name_changed?
+      Audit.create(contact: @contact, audit_message: "Email changed from #{@contact.email_was} to #{@contact.email}") if @contact.email_changed?
+      Audit.create(contact: @contact, audit_message: "Phone changed from #{@contact.phone_was} to #{@contact.phone}") if @contact.phone_changed?
     end
 
     # Use callbacks to share common setup or constraints between actions.
