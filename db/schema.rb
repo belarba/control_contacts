@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210928202340) do
+ActiveRecord::Schema.define(version: 20210929184127) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "first_name"
@@ -21,5 +21,7 @@ ActiveRecord::Schema.define(version: 20210928202340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "contacts", ["email"], name: "uniq_email_per_contact", unique: true
 
 end
