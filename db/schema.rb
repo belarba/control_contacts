@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210929184127) do
+ActiveRecord::Schema.define(version: 20210930104835) do
+
+  create_table "audits", force: :cascade do |t|
+    t.integer  "contact_id"
+    t.string   "audit_message"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "first_name"

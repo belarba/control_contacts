@@ -5,4 +5,6 @@ class Contact < ActiveRecord::Base
   validates :phone, presence: true
 
   validates_uniqueness_of :email
+
+  has_many :audits, dependent: :destroy
 end
