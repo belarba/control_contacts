@@ -6,6 +6,9 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = Contact.all
+    respond_to do |format|
+      format.json { render json: @contacts, include: :audits }
+    end
   end
 
   # GET /contacts/1
