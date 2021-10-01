@@ -54,6 +54,11 @@ GEM
     diff-lcs (1.4.4)
     erubis (2.7.0)
     execjs (2.8.1)
+    factory_bot (5.2.0)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.2.0)
+      factory_bot (~> 5.2.0)
+      railties (>= 4.2.0)
     ffi (1.15.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -173,6 +178,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  factory_bot_rails (~> 5.0)
   jbuilder (~> 2.0)
   jquery-rails
   rack-cors
