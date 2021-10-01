@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe ContactsController, type: :controller do
 
-  describe "GET #index" do
+  describe 'GET #index' do
     let(:my_contacts){Contact.create(id: 1, first_name: 'Bruce', last_name: 'Dickinson', email: 'iron@maiden.com', phone: '666', created_at: Time.now.utc, updated_at: Time.now.utc)}
 
     before do
       Contact.create(first_name: 'Bruce', last_name: 'Dickinson', email: 'iron@maiden.com', phone: '666')
     end
-    it "should return successful response" do
-      request.accept = "application/json"
+    it 'should return successful response' do
+      request.accept = 'application/json'
       get :index
 
       expect(response).to have_http_status(:success)
@@ -19,7 +19,7 @@ RSpec.describe ContactsController, type: :controller do
   describe 'POST #create' do
     context 'with good email' do
       it 'should return successful response' do
-        request.accept = "application/json"
+        request.accept = 'application/json'
         post :create, contact: {first_name: 'Bruce', last_name: 'Dickinson', email: 'iron@maiden.com', phone: '666'}
 
         expect(response).to have_http_status(:success)
@@ -31,7 +31,7 @@ RSpec.describe ContactsController, type: :controller do
         Contact.create(first_name: 'Bruce', last_name: 'Dickinson', email: 'iron@maiden.com', phone: '666')
       end
       it 'should return successful response' do
-        request.accept = "application/json"
+        request.accept = 'application/json'
         post :create, contact: {first_name: 'Steve', last_name: 'Harris', email: 'iron@maiden.com', phone: '666'}
 
         expect(response.response_code).to be(422)
@@ -50,5 +50,4 @@ RSpec.describe ContactsController, type: :controller do
       end
     end
   end
-
 end
