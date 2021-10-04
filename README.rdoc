@@ -1,28 +1,60 @@
-== README
+This is a Ruby on Rails Backend to CRUD Contact info<br>
+You can find the website that uses it in: https://github.com/belarba/contacts_client
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##### Prerequisites
 
-Things you may want to cover:
+The setups steps expect following tools installed on the system.
 
-* Ruby version
+- Github
+- Ruby [2.3.1](https://www.ruby-lang.org/pt/news/2016/04/26/ruby-2-3-1-released/)
+- Rails [4.2.3](https://rubygems.org/gems/rails/versions/4.2.3?locale=pt-BR)
 
-* System dependencies
+1. Check out the repository
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  git clone https://github.com/belarba/control_contacts.git
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. Create and setup the database
+
+Run the following commands to create and setup the database.
+
+  bundle exec rake db:create
+  bundle exec rake db:setup
+
+
+3. Run the seed to add sample test data
+
+Run the following commands to add info to the database.
+
+  bundle exec rake db:seed
+
+
+4. Start the Rails server
+
+You can start the rails server using the command given below.
+
+  bundle exec rails s
+
+
+And now the server will be live on URL http://localhost:3000
+
+
+
+##### Routes
+
+  Verb   URI Pattern                  Controller#Action
+  GET    /contacts(.:format)          contacts#index
+  POST   /contacts(.:format)          contacts#create
+  GET    /contacts/new(.:format)      contacts#new
+  GET    /contacts/:id/edit(.:format) contacts#edit
+  GET    /contacts/:id(.:format)      contacts#show
+  PATCH  /contacts/:id(.:format)      contacts#update
+  PUT    /contacts/:id(.:format)      contacts#update
+  DELETE /contacts/:id(.:format)      contacts#destroy
+  
+  
+##### Automated Tests
+
+We have few automated tests. To execute it just run
+
+  rspec
